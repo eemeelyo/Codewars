@@ -227,3 +227,17 @@ function smash(words) {
   return rToS;
 }
 //----------------------------------------------------------------------------------------
+//Training JS #16: Methods of String object--slice(), substring() and substr()
+function cutIt(arr) {
+  //coding here...
+  let shortestLength = Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    //     console.log(arr[i]);
+    if (arr[i].length < shortestLength) {
+      shortestLength = arr[i].length;
+    }
+    console.log(shortestLength);
+  }
+  return arr.map((string) => string.slice(0, shortestLength));
+}
