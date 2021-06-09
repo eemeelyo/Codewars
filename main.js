@@ -117,23 +117,25 @@ function positiveSum(arr) {
 //// Count of positives / sum of negatives -----------------------------------------------------------------------------
 
 function countPositivesSumNegatives(input) {
-  let positive = [];
+  let positive = 0;
   let negative = 0;
-  for (let i = 0; i < input.length; i++) {
-    if (input[i] === " " || input[i] === null || input === 0) {
-      return [];
-    } else if (input[i] < 0) {
+  if (!input || !input.length) {
+  return [];
+    }
+  
+  for (let i = 0; i < input.length; i++){
+    if (input[i] < 0){
       negative += input[i];
-      //       console.log(negative);
     } else if (input[i] > 0) {
-      positive.push(input[i]);
-      //       console.log(positive.length)
+      positive++;
+    } else {
+      continue;
     }
   }
-  return [positive.length, negative];
-  //   return negative;
-}
-//-----------------------------------------------------------------------------------------------------------------------
+
+    console.log([positive, negative])
+      return([positive, negative]);
+  // }-----------------------------------------------------------------------------------------------------------------------
 //Heads and Legs
 function animals(heads, legs) {
   var x = (4 * heads - legs) / 2;
@@ -241,3 +243,60 @@ function cutIt(arr) {
   }
   return arr.map((string) => string.slice(0, shortestLength));
 }
+//---------------------------------------------------------------------------------------
+// Penguin Olympics: Swimming Race Disaster
+
+function calculateWinners(snapshot, penguins) {
+  // TODO: solve kata
+  // RETURN "GOLD: <name-1>, SILVER: <name-2>, BRONZE: <name-3>"
+  // Top three penguins
+  // Snapshot is String of lanes
+  // Each has one Penguin
+  // Lanes are same length
+  // Penguis are names of penguins in order of lanes
+  // Penguins can be "p" or "P"
+  // Split snapshot into distance remaining.
+  // Count the value of the distance remaining in each lane.
+  // When counting "-" + 1 and "~" + 2
+  // Label penguins
+  // Order penguins with the least difficult route
+  // Return the winning panguins
+
+  const lanesArray = snapshot
+    .split("|")
+    .filter((lane) => lane.toLowerCase().includes("p"));
+  const remainingWaterArray = lanesArray.map((lane) => {
+    const penguinIndex = lane.toLowerCase().indexOf("p");
+    const remainingWater = lane.slice(penguinIndex + 1);
+    return remainingWater;
+  });
+  const remainingTimeArray = remainingWaterArray.map((lane) =>
+    calculateTimeRemaining(lane)
+  );
+  const penguinsAndTimesArray = remainingTimeArray.map((time, index) => {
+    return { time: time, penguin: penguins[index] };
+  });
+  const sortedWinnersArray = penguinsAndTimesArray.sort(
+    (a, b) => a.time - b.time
+  );
+  console.log(sortedWinnersArray);
+
+  return `GOLD: ${sortedWinnersArray[0].penguin}, SILVER: ${sortedWinnersArray[1].penguin}, BRONZE: ${sortedWinnersArray[2].penguin}`;
+}
+
+function calculateTimeRemaining(lane) {
+  const laneArray = lane.split("");
+  let timeCounter = 0;
+
+  laneArray.forEach((waterTile) => {
+    if (waterTile === "-") {
+      timeCounter = timeCounter + 1;
+    }
+    if (waterTile === "~") {
+      timeCounter = timeCounter + 2;
+    }
+  });
+  return timeCounter;
+}
+
+//--------------------------------------------------------------------------------------
