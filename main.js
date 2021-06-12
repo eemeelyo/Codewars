@@ -408,4 +408,81 @@ function preFizz(n) {
   return newArray;
 }
 //----------------------------------------------------------------------------------------
+//Cat years, Dog years
+var humanYearsCatYearsDogYears = function (humanYears) {
+  // Your code here!
+  let catYears = 24;
+  let dogYears = 24;
+
+  if (humanYears == 1) {
+    catYears -= 9; // 15 years
+    dogYears -= 9;
+  }
+  if (humanYears == 2) {
+    catYears; //24 years
+    dogYears;
+  }
+  if (humanYears >= 3) {
+    catYears += (humanYears - 2) * 4;
+    dogYears += (humanYears - 2) * 5;
+  }
+
+  return [humanYears, catYears, dogYears];
+};
+//---------------------------------------------------------------------------------------
+//Get the mean of an array
+function getAverage(marks) {
+  //TODO : calculate the downwar rounded average of the marks array
+  let mean = 0;
+
+  marks.forEach(getMean);
+
+  function getMean(item) {
+    console.log(marks.length);
+    mean += item / marks.length;
+  }
+  return Math.floor(mean);
+}
+//----------------------------------------------------------------------------------------
+//String repeat
+function repeatStr(n, s) {
+  let string = "";
+  let i = 0;
+  while (i < n) {
+    string += s;
+    i++;
+  }
+  return string;
+}
+//----------------------------------------------------------------------------------------
+//Calculate BMI
+function bmi(weight, height) {
+  let calcBMI = weight / (height * height);
+
+  if (calcBMI <= 18.5) {
+    return "Underweight";
+  }
+  if (calcBMI <= 25.0) {
+    return "Normal";
+  }
+  if (calcBMI <= 30.0) {
+    return "Overweight";
+  }
+  if (calcBMI > 30) {
+    return "Obese";
+  }
+  return "";
+}
+//----------------------------------------------------------------------------------------
+//Grasshopper - Personalized Message
+function greet(name, owner) {
+  // Add code here
+  if (name === owner) {
+    return "Hello boss";
+  }
+  if (name != owner) {
+    return "Hello guest";
+  }
+}
+//---------------------------------------------------------------------------------------
 //
