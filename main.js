@@ -321,3 +321,91 @@ var isSquare = function (n) {
 };
 
 // --------------------------------------------------------------------------------------
+// Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search()
+function firstToLast(str, c) {
+  //coding here..
+  //   console.log(str)
+  //   console.log(c)
+  let result = 0;
+  for (let i = 0; i < str.length; i++) {
+    let searchC = str[i].search(c);
+    console.log(str[i] + "=" + searchC);
+    if (searchC === 0) {
+      result++;
+      //       console.log(result)
+    }
+  }
+
+  if (result === 1) {
+    result = 0;
+  } else if (result === 0) {
+    result = -1;
+  }
+
+  return result;
+}
+
+// --------------------------------------------------------------------------------------
+// Grasshopper - If/else syntax debug
+
+function checkAlive(health) {
+  if (health <= 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
+//--------------------------------------------------------------------------------
+//Sum The Strings
+function sumStr(a, b) {
+  if (a === "") {
+    a = 0;
+  }
+  if (b === "") {
+    b = 0;
+  }
+  a = parseInt(a);
+  b = parseInt(b);
+  console.log(`${a} + ${b}`);
+
+  let sum = a + b;
+
+  return sum.toString();
+}
+//--------------------------------------------------------------------------------------
+//Remove First and Last Character
+function removeChar(str) {
+  //You got this!
+  return str.slice(1, -1);
+}
+//---------------------------------------------------------------------------------------
+//Thinkful - Logic Drills: Traffic light
+function updateLight(current) {
+  //your code here!
+  if (current === "green") {
+    return "yellow";
+  } else if (current === "yellow") {
+    return "red";
+  } else if (current === "red") {
+    return "green";
+  }
+  return current;
+}
+//---------------------------------------------------------------------------------------
+//Exclamation marks series #2: Remove all exclamation marks from the end of sentence
+function remove(s) {
+  //coding and coding....
+
+  return s.replace(/!+$/, "");
+}
+//-----------------------------------------------------------------------------------------
+//Pre-FizzBuzz Workout #1
+function preFizz(n) {
+  let newArray = [];
+  for (let i = 1; i <= n; i++) {
+    newArray.push(i);
+  }
+  return newArray;
+}
+//----------------------------------------------------------------------------------------
+//
