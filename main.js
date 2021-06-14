@@ -244,10 +244,25 @@ function countPositivesSumNegatives(input) {
     return arr.map((string) => string.slice(0, shortestLength));
   }
   //---------------------------------------------------------------------------------------
+  // Longest word
+  function findLongestWordLength(str) {
+    let longestWord = 0;
+    let arr = str.split(" ");
+
+    arr.forEach((string) => {
+      if (string.length > longestWord) {
+        longestWord = string.length;
+      }
+    });
+    console.log(longestWord);
+  }
+
+  findLongestWordLength("The quick brown fox jumped over the lazy dog");
+  //--------------------------------------------------------------------------------------
   // Penguin Olympics: Swimming Race Disaster
 
   function calculateWinners(snapshot, penguins) {
-    // TODO: solve kata
+    // TODO solve kata
     // RETURN "GOLD: <name-1>, SILVER: <name-2>, BRONZE: <name-3>"
     // Top three penguins
     // Snapshot is String of lanes
@@ -485,4 +500,135 @@ function greet(name, owner) {
   }
 }
 //---------------------------------------------------------------------------------------
+//How old will I be in 2099?
+function calculateAge(birth, future) {
+  if (future - birth > 1) {
+    return "You are " + (future - birth) + " years old.";
+  } else if (future == birth - 1) {
+    return "You will be born in " + (birth - future) + " year.";
+  } else if (future < birth) {
+    return "You will be born in " + (birth - future) + " years.";
+  } else if (birth == future - 1) {
+    return "You are " + (future - birth) + " year old.";
+  } else {
+    return "You were born this very year!";
+  }
+}
+//----------------------------------------------------------------------------------------
+// Reverse a String
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+
+reverseString("hello");
+//----------------------------------------------------------------------------------------
+//Kebab case. Line in between words
+const toKebabCase = (str) =>
+  str &&
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map((x) => x.toLowerCase())
+    .join("-");
+
+toKebabCase("camelCase"); // 'camel-case'
+toKebabCase("some text"); // 'some-text'
+toKebabCase("some-mixed_string With spaces_underscores-and-hyphens"); // 'some-mixed-string-with-spaces-underscores-and-hyphens'
+toKebabCase("AllThe-small Things"); // "all-the-small-things"
+toKebabCase(
+  "IAmListeningToFMWhileLoadingDifferentURLOnMyBrowserAndAlsoEditingSomeXMLAndHTML"
+); // "i-am-listening-to-fm-while-loading-different-url-on-my-browser-and-also-editing-xml-and-html"
+
+//----------------------------------------------------------------------------------
+//Factoralize a number
+function factorialize(num) {
+  let i = 0; //--- Callingthe variable outside because the for wont use let but only var.
+
+  if (num >= 0) {
+    for (i = 1; num > 0; num--) {
+      i *= num;
+    }
+  }
+  return i;
+}
+
+factorialize(5);
+
+//--------------------------------------------------------------------------------------
+// Largest of four NUmbers
+function largestOfFour(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let largestNumber = arr[i][0];
+    for (let j = 1; j < arr[i].length; j++) {
+      if (arr[i][j] > largestNumber) {
+        largestNumber = arr[i][j];
+      }
+    }
+    result[i] = largestNumber;
+  }
+  console.log(result);
+}
+
+largestOfFour([
+  [4, 5, 1, 3],
+  [13, 27, 18, 26],
+  [32, 35, 37, 39],
+  [1000, 1001, 857, 1],
+]);
+//----------------------------------------------------------------------------------------
+//Confirm the Ending
+function confirmEnding(str, target) {
+  return str.slice(-target.length) === target;
+}
+
+confirmEnding("Bastian", "n");
+
+/*Code Explanation
+If a negative number is provided as the first parameter to slice() , the offset is taken backwards from the end of the string.*/
+//---------------------------------------------------------------------------------------
+//Repeat a String Repeat a String
+function repeatStringNumTimes(str, num) {
+  let repeatStr = "";
+
+  while (num > 0) {
+    repeatStr += str;
+    num--;
+  }
+  return repeatStr;
+}
+
+repeatStringNumTimes("abc", 3);
+/*
+Code Explanation
+Create an empty string variable to store the repeated word.
+Use a while loop or for loop to repeat code as many times as needed according to num
+Then we just have to add the string to the variable created on step one, and increase or decrease num depending on how you set the loop.
+At the end of the loop, return the variable for the repeated word.*/
+
+//----------------------------------------------------------------------------------------
+//Truncate a String
+function truncateString(str, num) {
+  if (str.length > num) {
+    return str.slice(0, num) + "...";
+  } else {
+    return str;
+  }
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+//Code Explanation
+/*We start off with a simple if statement to determine one of two outcomes…
+If our string length is greater than the num we want to truncate it, we return a slice of our string starting at character 0, and ending at num. We then append our '...' to the end of the string.
+However, if above situation is not true, it means our string length is less than our truncation num. Therefore, we can just return the string.*/
+
+//----------------------------------------------------------------------------------------
+//Simple Comparison?
+function add(a, b) {
+  // code here
+  let compare = a == b;
+  console.log(compare);
+  return compare;
+}
+//----------------------------------------------------------------------------------------
 //
