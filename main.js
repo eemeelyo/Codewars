@@ -631,4 +631,30 @@ function add(a, b) {
   return compare;
 }
 //----------------------------------------------------------------------------------------
+//Remove the time
+function shortenToDate(longDate) {
+  // your code here
+  let shortDate = longDate.split(",");
+  console.log(shortDate[0]);
+  return shortDate[0];
+}
+//----------------------------------------------------------------------------------------
+//ES6 string addition
+function joinStrings(string1, string2) {
+  // code here\
+  return `${string1} ${string2}`;
+}
+//----------------------------------------------------------------------------------------
+//Power
+function numberToPower(number, power) {
+  // Code here
+  let numPower = 1;
+  while (power > 0) {
+    numPower *= number;
+    power--;
+  }
+  console.log(numPower);
+  return numPower;
+}
+//----------------------------------------------------------------------------------------
 //
