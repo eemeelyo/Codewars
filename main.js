@@ -657,4 +657,12 @@ function numberToPower(number, power) {
   return numPower;
 }
 //----------------------------------------------------------------------------------------
+//Vowel remover
+function shortcut(string) {
+  let result = string.replace(/[aeiou]/g, "");
+
+  console.log(result);
+  return result;
+}
+//---------------------------------------------------------------------------------------
 //
