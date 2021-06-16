@@ -830,4 +830,38 @@ function getRealFloor(n) {
   }
 }
 //-------------------------------------------------------------------------------------
+//Will there be enough space?
+function enough(cap, on, wait) {
+  // your code here
+  let available = cap - on;
+  if (available >= wait) {
+    return 0;
+  }
+  return wait - available;
+}
+//-------------------------------------------------------------------------------------
+//Drink about
+function peopleWithAgeDrink(old) {
+  if (old < 14) {
+    return "drink toddy";
+  }
+  if (old < 18) {
+    return "drink coke";
+  }
+  if (old < 21) {
+    return "drink beer";
+  }
+  if (old >= 21) {
+    return "drink whisky";
+  }
+  return "";
+}
+//-------------------------------------------------------------------------------------
+//Holiday VIII - Duty Free
+function dutyFree(normPrice, discount, hol) {
+  let total = (normPrice * discount) / 100;
+  let cover = hol / total;
+  return Math.floor(cover);
+}
+//-------------------------------------------------------------------------------------
 //
