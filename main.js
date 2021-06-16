@@ -665,4 +665,169 @@ function shortcut(string) {
   return result;
 }
 //---------------------------------------------------------------------------------------
+//Keep Hydrated!
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+//---------------------------------------------------------------------------------------
+//Reversed Words
+function reverseWords(str) {
+  return str.split(" ").reverse().join(" "); // reverse those words
+}
+//----------------------------------------------------------------------------------------
+//Quarter of the year
+const quarterOf = (month) => {
+  // Your code here
+  if (month <= 3) {
+    return 1;
+  } else if (month <= 6) {
+    return 2;
+  } else if (month <= 9) {
+    return 3;
+  } else if (month <= 12) {
+    return 4;
+  } else {
+    console.log("Not applicable");
+  }
+};
+//----------------------------------------------------------------------------------------
+//Convert boolean values to strings 'Yes' or 'No'.
+function boolToWord(bool) {
+  //...
+  if (bool === true) {
+    return "Yes";
+  }
+  return "No";
+}
+//----------------------------------------------------------------------------------------
+//How many lightsabers do you own?
+function howManyLightsabersDoYouOwn(name) {
+  if (name === "Zach") {
+    return 18;
+  }
+  return 0;
+}
+//----------------------------------------------------------------------------------------
+//Area or Perimeter
+const areaOrPerimeter = function (l, w) {
+  // Return your answer
+  if (l === w) {
+    return l * w;
+  }
+  return (l + w) * 2;
+};
+//----------------------------------------------------------------------------------------
+//Will you make it?
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  // TODO
+  if (distanceToPump <= mpg * fuelLeft) {
+    return true;
+  }
+  return false;
+};
+//----------------------------------------------------------------------------------------
+//Do you speak "English"?
+
+function spEng(sentence) {
+  //write your code here
+  var eng = /english/gi;
+  if (sentence.match(eng)) {
+    return true;
+  }
+  return false;
+}
+//------------------------------------------------------
+//Connect Four: Who Won?
+//
+//SETUP
+// Board is a 2D array... Array inside an array
+//Board[0][0] is the top left corner of the board.
+//Lets say board[x][y] for referring to the grid:
+//Gride square can be empty("-") or filled with red('R) or Yellow('Y)
+//If there are four red or four yellow squares in a sequence that  colour has won the game.
+
+//IDEAS
+//Need algorithm to check through horizontal, vertical and diagonal
+//Need algorithm to check board is full or empty - check for '-' during sequence finding
+//Need to check four sequence algorithm
+
+let horiontalCheck = checkHorizontal(board);
+console.log(horiontalCheck);
+
+function checkHorizontal(board) {
+  let sequenceCounter = 1;
+  let previousSquare = "";
+  let winningColour = "";
+
+  for (let x = 0; x < board.length; x++) {
+    if (sequenceCounter === 4) {
+      break;
+    }
+    for (let y = 0; y < board[0].length; y++) {
+      let currentSquare = board[x][y];
+      if (currentSquare === "-") {
+        continue;
+      }
+      console.log(currentSquare);
+      if (currentSquare === previousSquare) {
+        sequenceCounter++;
+      }
+      if (currentSquare !== previousSquare) {
+        sequenceCounter = 1;
+      }
+      if (sequenceCounter === 4) {
+        winningColour = currentSquare;
+        break;
+      }
+      previousSquare = currentSquare;
+    }
+  }
+  return winningColour;
+}
+//-------------------------------------------------------------------------------------
+//Calculate average
+function find_average(array) {
+  // your code here
+  if (array === "") {
+    return 0;
+  }
+
+  let avg = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 0) {
+      avg += array[i];
+    }
+  }
+  return avg / array.length;
+}
+//-------------------------------------------------------------------------------------
+//Abbreviate a Two Word Name
+function abbrevName(name) {
+  let nameSplit = name.split(" ");
+  let firstName = nameSplit[0];
+  let lastName = nameSplit[1];
+  let initials = firstName;
+  return `${firstName[0]}.${lastName[0]}`.toUpperCase();
+  // code away
+}
+//-------------------------------------------------------------------------------------
+//What's the real floor?
+function getRealFloor(n) {
+  if (n === 1) {
+    return 0;
+  }
+  if (n === 0) {
+    return 0;
+  }
+  if (n >= 13) {
+    return n - 2;
+  }
+  if (n <= 12 && n > 0) {
+    return n - 1;
+  }
+  if (n < 0) {
+    return n;
+  }
+}
+//-------------------------------------------------------------------------------------
 //
