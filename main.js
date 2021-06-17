@@ -932,3 +932,36 @@ function makeUpperCase(str) {
   return str.toUpperCase();
 }
 //----------------------------------------------------------------------------------------------------------
+//Who likes it?
+function likes(names) {
+  // TODO
+  if (names.length === 0) {
+    return "no one likes this";
+  }
+  if (names.length === 1) {
+    return `${names} likes this`;
+  }
+  if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  }
+  if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  }
+  if (names.length > 3) {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  }
+}
+//----------------------------------------------------------------------------------------
+//Counting sheep...
+function countSheeps(arrayOfSheep) {
+  // TODO May the force be with you
+  let sheeps = 0;
+  for (let i = 0; i < arrayOfSheep.length; i++) {
+    if (arrayOfSheep[i] === true) {
+      sheeps += 1;
+    }
+  }
+  return sheeps;
+}
+//----------------------------------------------------------------------------------------
+//
