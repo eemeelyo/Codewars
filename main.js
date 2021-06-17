@@ -864,4 +864,71 @@ function dutyFree(normPrice, discount, hol) {
   return Math.floor(cover);
 }
 //-------------------------------------------------------------------------------------
-//
+//Price of Mangoes
+function mango(quantity, price) {
+  let extra = 0;
+  let newQuantity = quantity;
+  console.log(`Give quantity = ${quantity}, Price = ${price}`);
+  while (newQuantity >= 3) {
+    newQuantity -= 3;
+    extra += 1;
+
+    //     if(newQuantity <= 2){
+    //       quantity += newQuantity;
+    //       console.log(`Quantity = ${quantity}`)
+    //     }
+  }
+  console.log(`${quantity}, ${price}`);
+  console.log((quantity - extra) * price);
+  return (quantity - extra) * price;
+}
+//-------------------------------------------------------------------------------------
+//pick a set of first elements
+function first(arr, n) {
+  // return arr;
+  let result = [];
+
+  if (n == 0) {
+    result = [];
+    console.log(result);
+  }
+
+  if (n == undefined) {
+    result.push(arr[0]);
+    console.log(result);
+  }
+
+  if (n > arr.length) {
+    n = arr.length;
+  }
+
+  for (let i = 0; i < n; i++) {
+    result.push(arr[i]);
+  }
+
+  return result;
+}
+//------------------------------------------------------------------------------------------------------
+//Keep up the hoop
+function hoopCount(n) {
+  //your code goes here
+  if (n >= 10) {
+    return "Great, now move on to tricks";
+  }
+  return "Keep at it until you get it";
+}
+//--------------------------------------------------------------------------------------------------------
+//Beginner Series #1 School Paperwork
+function paperwork(n, m) {
+  if (n > 0 && m > 0) {
+    return n * m;
+  }
+  return 0;
+}
+//---------------------------------------------------------------------------------------------------------
+//MakeUpperCase
+function makeUpperCase(str) {
+  // Code here
+  return str.toUpperCase();
+}
+//----------------------------------------------------------------------------------------------------------
