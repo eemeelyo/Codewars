@@ -964,4 +964,41 @@ function countSheeps(arrayOfSheep) {
   return sheeps;
 }
 //----------------------------------------------------------------------------------------
+//Finders Keepers
+function findElement(arr, func) {
+  let num = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    num = arr[i];
+    if (func(num)) {
+      return num;
+    }
+  }
+
+  return undefined;
+}
+//----------------------------------------------------------------------------------------
+//Boo Who Boolean Type?
+function booWho(bool) {
+  return typeof bool === "boolean";
+}
+
+booWho(null);
+//----------------------------------------------------------------------------------------
+//Title Case a Sentence
+function titleCase(str) {
+  let strArray = str.toLowerCase().split(" ");
+  let result = strArray.map(function (element) {
+    return element.replace(element.charAt(0), element.charAt(0).toUpperCase());
+  });
+  return result.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+//--------------------------------------------------
+// FIXME: Replace all dots
+var replaceDots = function (str) {
+  return str.replace(/\./g, "-"); //<<<<< regex Selecting all the dots and replace with "-"
+};
+//------------------------------------------------
 //
