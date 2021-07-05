@@ -1001,4 +1001,44 @@ var replaceDots = function (str) {
   return str.replace(/\./g, "-"); //<<<<< regex Selecting all the dots and replace with "-"
 };
 //------------------------------------------------
+//Compare within margin
+function closeCompare(a, b, margin) {
+  // ...
+  let result = 0;
+  console.log(a, b, margin);
+  if (margin === undefined) {
+    margin = 0;
+  }
+  if (a < b) {
+    result = b - a;
+    if (result <= margin) {
+      return 0;
+    }
+    return -1;
+  }
+  if (a > b) {
+    result = a - b;
+    if (result <= margin) {
+      return 0;
+    }
+    return 1;
+  }
+  if (a === b) {
+    result = 0;
+  }
+  return result;
+}
+//---------------------------------------------------------------------------------------
+//Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search()
+function firstToLast(str, c) {
+  //coding here..
+  let first = str.indexOf(c);
+  let last = str.lastIndexOf(c);
+
+  if (first === -1 && last === -1) {
+    return -1;
+  }
+  return last - first;
+}
+//--------------------------------------------------------------------------------------
 //
